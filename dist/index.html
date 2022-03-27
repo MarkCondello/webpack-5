@@ -85,7 +85,7 @@ h1, h2, h3 ,p, li {
     </li>
     <li>Then in the package.json, replace the existing script there with this:<br>
       <code>"build": "webpack --mode production"</code><br>
-      After running that command webpack will compile exerything inside the index.js file and its imported modules to a dist directory as the file main.js.<br>
+      After running that command webpack will compile exerything inside the index.js file and its imported modules (including node_modules) to a dist directory as the file main.js.<br>
       Webpack expects the index.js file to be within an src directory.
     </li>
   </ol>
