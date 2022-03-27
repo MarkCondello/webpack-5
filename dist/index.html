@@ -64,15 +64,49 @@ h1 {
   font-size: 2rem;
 }
 h2 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 h1, h2, h3 ,p, li {
     margin-bottom: 1rem;
+}
+code {
+  background-color: #e4e3e3;
+  color: #747474;
+  display: block;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  padding: 1rem;
 }
   </style>
 </head>
 <body>
   <h1><a href="https://www.youtube.com/watch?v=IZGNcSuwBZs" target="_blank">Webpack App</a></h1>
+  <hr>
+  <h2>Webpack config</h2>
+  <p>Using the webpack.config.js file, we can globally set the mode which allows us to remove that from the script in the package.json.</p>
+  <p>We can also set where webpack compiles its assets from and where it sends those built assets as well as the filename which by default is main.js</p>
+  <p>The following is a simple .config file which supports what is mentioned above:</p>
+  <code>
+    const path = require('path')<br>
+    module.exports = {<br>
+      mode: 'development',<br>
+      entry: path.resolve(__dirname, 'src/index.js'),<br>
+      output: {<br>
+        path: path.resolve(__dirname, 'dist'),<br>
+        filename: 'build.js'<br>
+      },<br>
+    }<br>
+    </code>
+    <p>If we want to include code splitting, we can change the entry option to an object and use its name parameter as the filename output using the bracket syntax. See the updated .config below:</p>
+    <code>
+      entry: {<br>
+        bundle: path.resolve(__dirname, 'src/index.js'),<br>
+      },<br>
+      output: {<br>
+        path: path.resolve(__dirname, 'dist'),<br>
+        filename: '[name].js'<br>
+      },<br>
+    </code>
   <hr>
   <h2>Simple setup</h2>
   <p>Al that is needed for a simple webpack setup which will allow us to use javascript modules, is the following:</p>
@@ -89,6 +123,6 @@ h1, h2, h3 ,p, li {
       Webpack expects the index.js file to be within an src directory.
     </li>
   </ol>
-  <script src="./main.js"></script>
+  <script src="./build.js"></script>
 </body>
 </html>
