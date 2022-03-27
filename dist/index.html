@@ -5,84 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webpack App</title>
-  <style>
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	/* list-style: none; */
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 2rem;
-}
-
-h1 {
-  font-size: 2rem;
-}
-h2 {
-  font-size: 1.5rem;
-}
-h1, h2, h3 ,p, li {
-    margin-bottom: 1rem;
-}
-code {
-  background-color: #e4e3e3;
-  color: #747474;
-  display: block;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1rem;
-  padding: 1rem;
-}
-  </style>
 </head>
 <body>
   <h1><a href="https://www.youtube.com/watch?v=IZGNcSuwBZs" target="_blank">Webpack App</a></h1>
   <hr>
-  <h2>Webpack config</h2>
+  <h2><a href="https://www.youtube.com/watch?v=IZGNcSuwBZs=567s" target="_blank">Webpack config</a></h2>
   <p>Using the webpack.config.js file, we can globally set the mode which allows us to remove that from the script in the package.json.</p>
   <p>We can also set where webpack compiles its assets from and where it sends those built assets as well as the filename which by default is main.js</p>
   <p>The following is a simple .config file which supports what is mentioned above:</p>
@@ -107,6 +34,29 @@ code {
         filename: '[name].js'<br>
       },<br>
     </code>
+    <br>
+    <h2><a href="https://www.youtube.com/watch?v=IZGNcSuwBZs-762s" target="_blank">Loaders</a></h2>
+    <p>Loaders allow for images, scss to be compiled with the webpack build.</p>
+    <p>To include loaders in the config, we need to install the appropriate modules. Run the following install:</p>
+    <code>npm i -D sass style-loader css-loader sass-loader</code>
+    <p>We can try to import a .scss file into our index.js, but webpack will thow an error:</p>
+    <code>ERROR in ./src/styles/main.scss 1:0<br>
+      Module parse failed: Unexpected character '@' (1:0)<br>
+      You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders</code>
+    <p>So in order to build sass files we need an extra module object in our webpack config file.</p>
+      <code>
+        module: {<br>
+          rules: [<br>
+            {<br>
+              test: /\.scss$/,<br>
+              use: ['style-loader', 'css-loader', 'sass-loader'],<br>
+            },<br><br>
+      
+          ],<br>
+        },<br>
+      </code>
+<h2><a href="https://www.youtube.com/watch?v=IZGNcSuwBZs&t=971s" target="_blank">Plugins</a></h2>
+
   <hr>
   <h2>Simple setup</h2>
   <p>Al that is needed for a simple webpack setup which will allow us to use javascript modules, is the following:</p>
@@ -123,6 +73,6 @@ code {
       Webpack expects the index.js file to be within an src directory.
     </li>
   </ol>
-  <script src="./build.js"></script>
+  <script src="./bundle.js"></script>
 </body>
 </html>
