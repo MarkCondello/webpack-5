@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webpack App</title>
+</head>
+<body>
+  <h1><a href="https://www.youtube.com/watch?v=IZGNcSuwBZs" target="_blank">Webpack App</a></h1>
+  <hr>
+  <h2>Simple setup</h2>
+  <p>Al that is needed for a simple webpack setup which will allow us to use javascript modules, is the following:</p>
+  <ol>
+    <li>Run: <br> 
+      <code>npm init -y</code><br>
+      To create the package.json.<br>
+      and install webpack and webpack-cli as a dev dependency:<br>
+      <code>npm i webpack webpack-cli -D</code>
+    </li>
+    <li>Then in the package.json, replace the existing script there with this:<br>
+      <code>"build": "webpack --mode production"</code><br>
+      After running that command webpack will compile exerything inside the index.js file and its imported modules to a dist directory as the file main.js.<br>
+      Webpack expects the index.js file to be within an src directory.
+    </li>
+  </ol>
+  <script src="./main.js"></script>
+</body>
+</html>
